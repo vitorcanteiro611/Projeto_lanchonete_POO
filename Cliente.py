@@ -8,6 +8,16 @@ class Cliente:
         self.endereco=endereco  
 
 
+    def imprimirCliente(self):            
+        print(f"\n--------Cliente {self.nome} ----------- "
+                f"\nCpf: {self.cpf}" 
+                f"\nTelefone: {self.__telefone}" 
+                f"\nE-mail: {self.email}"
+                f"\nEndereço:{self.endereco}"
+                    )
+
+
+
 
 
 

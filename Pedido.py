@@ -14,16 +14,20 @@ class Pedido:
 
     
     #Metódo - Ação
-    def  atualizar_Pedido(self, novoStatus):
-        self.status=novoStatus
+    #def  atualizar_Pedido(self, novoStatus):
+     #   self.status=novoStatus
 
-    def imprimir(self):             
+    def imprimirPedido(self):           
         print(f"\n--------Pedido n° {self.numero} ----------- "
               f"\nData: {self.data}" 
               f"\nHora: {self.hora}"
               f"\nCliente:{self.cliente.nome}" 
-              f"\nPagamento: {self.pagamento}"
-              f"\nTelefone:{self.cliente.getTelefone()}"
+              f"\nPagamento: {self.pagamento} - Status{self.status}"
             )
 
+        for item in self.itens:
+            print(f'Produto: {item.produto.descricao}'
+                f'- Qtd: {item.quantidade} - Valor:{item.produto.preco}'
+                f'Total: {item.totalItem()}'        
+                )
         

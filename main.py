@@ -3,38 +3,93 @@ os.system('cls')
 
 from Produto import Produto
 from ItemPedido import ItemPedido
+from Cliente import Cliente
+from Pedido import Pedido
+
+#Cadastrar cliente
+novoCli = Cliente(nome='Amado Vitor', cpf='010.378.281-57',
+                  email='amadodograu99@mail.com', endereco="Rua de pedra, n°00", tel="(67)99999-9999")
 
 
-produto_Xbacon = Produto(nome="X-Bacon",cod= "P01", preco=15.00, descricao="Pão, bacon e cebola", categoria="Lanches")
+#Cadastrar produto
 
-imprimeProduto = produto_Xbacon.imprimeProduto()
+Hambúrguer = Produto(cod=0, nome='Siriguaijo', descricao= 'Pão e carne', categoria= 'Lanche', 
+                     preco=76.99)
 
-item1 = ItemPedido(produto=produto_Xbacon, observacoes="Sem cebola")
-print(f"Produto: {item1.produto.nome}"
-      f"\nObservações: {item1.obsservacoes}")
+refri = Produto(cod=1, nome='Refrizin', descricao='Agua com gás e corante', categoria='Bebida Energética',
+                preco=15.00)
 
+novoCli.imprimirCliente()
+Hambúrguer.imprimeProduto()
+refri.imprimeProduto()
 
-print("\n--- Atualizando o item do pedido ---")
+#Pedido
+item1 = ItemPedido(produto = Hambúrguer, observacoes="Pouco pão", qtd=3, desconto=4)
+item2 = ItemPedido(produto = refri, observacoes="Muito quente", qtd=2, desconto=0)
 
-item1.atualizar_item(novo_produto=produto_Xbacon, novas_observacoes="Com cebola")
-print(f"Produto: {item1.produto.nome}"
-      f"\nObservações: {item1.obsservacoes}")
+itens = [item1, item2]
 
-imprimirPedido = item1.imprimirPedido()
-atualizar_observacoes = item1.atualizar_observacoes(novas_observacoes="Sem alface")
-atualizar_produto = item1.atualizar_produto(novo_produto=produto_Xbacon)
-atualizar_item = item1.atualizar_item(novo_produto=produto_Xbacon, novas_observacoes="Sem tomate")
-atualizar_item_completo = item1.atualizar_item_completo(novo_produto=produto_Xbacon, novas_observacoes="Com alface")
+pedido = Pedido(numero=5, data='28/09/2026', hora='12:00', cliente=novoCli,
+                itens=itens, pag='pix')
 
-
-
-
+pedido.imprimirPedido()
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#____________________________________________________________________________________________________________________________
+#produto_Xbacon = Produto(nome="X-Bacon",cod= "P01", preco=15.00, descricao="Pão, bacon e cebola", categoria="Lanches")
+
+#imprimeProduto = produto_Xbacon.imprimeProduto()
+
+#item1 = ItemPedido(produto=produto_Xbacon, observacoes="Sem cebola")
+#print(f"Produto: {item1.produto.nome}"
+      #f"\nObservações: {item1.obsservacoes}")
+
+
+#print("\n--- Atualizando o item do pedido ---")
+
+#item1.atualizar_item(novo_produto=produto_Xbacon, novas_observacoes="Com cebola")
+#print(f"Produto: {item1.produto.nome}"
+#      f"\nObservações: {item1.obsservacoes}")
+
+#imprimirPedido = item1.imprimirPedido()
+#atualizar_observacoes = item1.atualizar_observacoes(novas_observacoes="Sem alface")
+#atualizar_produto = item1.atualizar_produto(novo_produto=produto_Xbacon)
+#atualizar_item = item1.atualizar_item(novo_produto=produto_Xbacon, novas_observacoes="Sem tomate")
+#atualizar_item_completo = item1.atualizar_item_completo(novo_produto=produto_Xbacon, novas_observacoes="Com alface")
+
+#_____________________________________________________________________________________________________________________________
 
 #from Pedido import Pedido
 #from Cliente import Cliente  # type: ignore # Classe cliente foi importada da outra aba
