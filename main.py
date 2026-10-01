@@ -1,10 +1,12 @@
 import os
-os.system('cls')
-
+from Cliente import Cliente
 from Produto import Produto
 from ItemPedido import ItemPedido
-from Cliente import Cliente
 from Pedido import Pedido
+os.system('cls')
+
+listaClientes = []
+listaPdt = []
 
 def menuCliente():
      while True:
@@ -19,7 +21,28 @@ def menuCliente():
 
         if opcao=="0":
             break
+        elif opcao=="1":
+            os.system('cls')
+            print("--------👤Cadastrar Cliente--------\n") 
 
+            nomeCliente=input('Nome do cliente:')
+            cpfCliente=input('Digite CPF:')
+            telefone=input('Digite o telefone: ')
+            enderecoCliente=input('Digite o endereço: ')
+            mail=input('Digite o e-mail: ')
+
+            novo = Cliente(nome=nomeCliente, cpf=cpfCliente, tel=telefone, endereco=enderecoCliente, email=mail)
+            listaClientes.append(novo)
+            input("Aperte enter para voltar...")
+
+        elif opcao=="2":
+            os.system('cls')
+            if len(listaClientes)==0:
+                print("\n\nNenhum cliente foi encontrado na lista😵")
+            else:
+                for cliente in listaClientes:
+                    cliente.imprimirCliente()
+        input("\n\nAperte enter para voltar...")
 
 def menuProduto():
     while True:
@@ -34,35 +57,56 @@ def menuProduto():
 
             if opcao=="0":
                 break
+            elif opcao=="1":
+                os.system('cls')
+                print("--------👤Cadastrar Produto--------\n") 
 
+                nomePdt=input('Nome do produto:')
+                codigoPdt=input('Código do produto:')
+                precoPdt=input('Preço cadastrado: ')
+                descricaoPdt=input('Descrição: ')
+                categoriaPdt=input('A qual categoria esse produto pertence?: ')
+
+                novoPdt = Produto(nome=nomePdt, cod=codigoPdt, preco=precoPdt, descricao=descricaoPdt, categoria=categoriaPdt)
+                listaPdt.append(novoPdt)
+                input("Aperte enter para voltar...")
+
+            elif opcao=="2":
+                os.system('cls')
+                if len(listaPdt)==0:
+                    print("\n\nNenhum produto foi encontrado na lista😵")
+                else:
+                    for produto in listaPdt:
+                        produto.imprimeProduto()
+            input("\n\nAperte enter para voltar...")
 
 
 
 #def munuPedido():
 
 
+if __name__ == "__main__":
 
+    while True:
+        os.system('cls')
+        print("--------Sistema Lanchonete🥪--------\n"
+            "1 - 👤 Clientes\n"+
+            "2 - 📦 Produtos\n"+
+            "3 - 🛒 Novo Pedido\n"+
+            "0 - ⬅️ Sair\n")
+        
 
-while True:
-    os.system('cls')
-    print("--------Sistema Lanchonete🥪--------\n"
-          "1 - 👤 Clientes\n"+
-          "2 - 📦 Produtos\n"+
-          "3 - 🛒 Novo Pedido\n"+
-          "0 - ⬅️ Sair\n")
-    
+        opcao = input("Digite a opção escolhida:")
 
-    opcao = input("Digite a opção escolhida:")
+        if opcao=="0":
+            break
+        elif opcao=="1":
+            menuCliente()
 
-    if opcao=="0":
-        break
-    elif opcao=="1":
-        menuCliente()
+        elif opcao=="2":
+            menuProduto()
 
-    elif opcao=="2":
-        menuProduto()
-
-print("Até mais usuário👋\n\n")    
+    print("Até mais usuário👋\n\n")    
 
 
 
