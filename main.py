@@ -6,33 +6,142 @@ from ItemPedido import ItemPedido
 from Cliente import Cliente
 from Pedido import Pedido
 
+def menuCliente():
+     while True:
+        os.system('cls')
+        print("--------👤Cad Clientes--------\n"
+              "1 - 👤 Adicionar\n"+
+              "2 - 📦 Listar\n"+
+              "3 - 🔍 Buscar\n"+
+              "4 - ❌ Excluir\n"+
+              "0 - ⬅️ Sair")
+        opcao = input("Digite a opção escolhida:")
+
+        if opcao=="0":
+            break
+
+
+def menuProduto():
+    while True:
+            os.system('cls')
+            print("--------📦Produtos--------\n"
+                  "1 - 📦Adicionar\n"+
+                  "2 - 📄 Listar\n"+
+                  "3 - 🔍 Buscar\n"+
+                  "4 - ❌ Excluir\n"+
+                  "0 - ⬅️ Sair")
+            opcao = input("Digite a opção escolhida:")
+
+            if opcao=="0":
+                break
+
+
+
+
+#def munuPedido():
+
+
+
+
+while True:
+    os.system('cls')
+    print("--------Sistema Lanchonete🥪--------\n"
+          "1 - 👤 Clientes\n"+
+          "2 - 📦 Produtos\n"+
+          "3 - 🛒 Novo Pedido\n"+
+          "0 - ⬅️ Sair\n")
+    
+
+    opcao = input("Digite a opção escolhida:")
+
+    if opcao=="0":
+        break
+    elif opcao=="1":
+        menuCliente()
+
+    elif opcao=="2":
+        menuProduto()
+
+print("Até mais usuário👋\n\n")    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #Cadastrar cliente
-novoCli = Cliente(nome='Amado Vitor', cpf='010.378.281-57',
-                  email='amadodograu99@mail.com', endereco="Rua de pedra, n°00", tel="(67)99999-9999")
+#novoCli = Cliente(nome='Amado Vitor', cpf='010.378.281-57',
+ #                 email='amadodograu99@mail.com', endereco="Rua de pedra, n°00", tel="(67)99999-9999")
 
 
 #Cadastrar produto
 
-Hambúrguer = Produto(cod=0, nome='Siriguaijo', descricao= 'Pão e carne', categoria= 'Lanche', 
-                     preco=76.99)
+#Hambúrguer = Produto(cod=0, nome='Siriguaijo', descricao= 'Pão e carne', categoria= 'Lanche', 
+ #                    preco=76.99)
 
-refri = Produto(cod=1, nome='Refrizin', descricao='Agua com gás e corante', categoria='Bebida Energética',
-                preco=15.00)
+#refri = Produto(cod=1, nome='Refrizin', descricao='Agua com gás e corante', categoria='Bebida Energética',
+             #   preco=15.00)
 
-novoCli.imprimirCliente()
-Hambúrguer.imprimeProduto()
-refri.imprimeProduto()
+#novoCli.imprimirCliente()
+#Hambúrguer.imprimeProduto()
+#efri.imprimeProduto()
 
 #Pedido
-item1 = ItemPedido(produto = Hambúrguer, observacoes="Pouco pão", qtd=3, desconto=4)
-item2 = ItemPedido(produto = refri, observacoes="Muito quente", qtd=2, desconto=0)
+#item1 = ItemPedido(produto = Hambúrguer, observacoes="Pouco pão", qtd=3, desconto=4)
+#item2 = ItemPedido(produto = refri, observacoes="Muito quente", qtd=2, desconto=0)
 
-itens = [item1, item2]
+#itens = [item1, item2]
 
-pedido = Pedido(numero=5, data='28/09/2026', hora='12:00', cliente=novoCli,
-                itens=itens, pag='pix')
+#pedido = Pedido(numero=5, data='28/09/2026', hora='12:00', cliente=novoCli,
+          #      itens=itens, pag='pix')
 
-pedido.imprimirPedido()
+#pedido.imprimirPedido()
 
 
 
@@ -124,4 +233,3 @@ pedido.imprimirPedido()
 # Mostrando o status atualizado
 #print(f"Status atual: {novoPedido.status}")
 #print('-'*5) para colocar o numero de linhas
-
